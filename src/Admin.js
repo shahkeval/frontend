@@ -55,7 +55,7 @@ function Admin() {
     
     const handleSubmit = (e) => {    
         e.preventDefault();
-        axios.post("https://backend-n4i6.vercel.app/api/Admin",
+        axios.post("https://backend.vercel.app/api/Admin",
         {  id: formValues.id,
         name: formValues.name,
         gender: formValues.gender,
