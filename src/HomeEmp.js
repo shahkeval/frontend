@@ -32,7 +32,7 @@ function HomeEmp() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`https://payroll-men.vercel.app/oneEmp/${id}`);
+        const res = await axios.get(`https://backend.vercel.app/api/oneEmp/${id}`);
         setAllUsers(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);
@@ -65,7 +65,7 @@ function HomeEmp() {
   };
 
   const handleUpdateFormCencle = async (e) => {
-    const updatedData = await axios.get(`https://payroll-men.vercel.app/oneEmp/${id}`);
+    const updatedData = await axios.get(`https://backend.vercel.app/api/oneEmp/${id}`);
     setAllUsers(updatedData.data);
     setSelectedUser(null);
     setUpdateFormData({
