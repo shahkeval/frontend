@@ -20,7 +20,7 @@ export default function SalRep() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`https://payroll-men.vercel.app/oneSalary/${id}`);
+        const res = await axios.get(`https://backend.vercel.app/api/oneSalary/${id}`);
         setAllSal(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);
