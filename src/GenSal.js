@@ -25,7 +25,7 @@ function GenSal () {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://payroll-men.vercel.app/allEmps');
+        const res = await axios.get('https://backend.vercel.app/api/allEmps');
         setAllUsers(res.data);
 
         setAllSal(res.data);
@@ -40,7 +40,7 @@ function GenSal () {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://payroll-men.vercel.app/allSalary');
+        const res = await axios.get('https://backend.vercel.app/api/allSalary');
         setAllSal(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);
@@ -79,10 +79,10 @@ function GenSal () {
     }
 
     try {
-      const res = await axios.delete(`https://payroll-men.vercel.app/deleteSalary/${user.id}`);
+      const res = await axios.delete(`https://backend.vercel.app/api/deleteSalary/${user.id}`);
       console.log('Employee deleted successfully:', res.data);
 
-      const updatedData = await axios.get('https://payroll-men.vercel.app/allSalary');
+      const updatedData = await axios.get('https://backend.vercel.app/api/allSalary');
       setAllSal(updatedData.data);
     } catch (error) {
     }
@@ -119,7 +119,7 @@ function GenSal () {
           s_eid:""
         })
         setActiveTable('Table');
-        const res = await axios.get('https://payroll-men.vercel.app/allSalary');
+        const res = await axios.get('https://backend.vercel.app/api/allSalary');
         setAllSal(res.data);
       })
       .catch((err) => {
