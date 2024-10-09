@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+import router from './path-to-router'; // Correct path to your router file
+app.use('/api', router); // Apply the router at a specific path
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
