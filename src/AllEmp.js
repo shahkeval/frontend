@@ -28,7 +28,7 @@ function AllEmp() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://backend.vercel.app/api/allEmps');
+        const res = await axios.get('https://backendapi-indol-psi.vercel.app/allEmps');
         setAllUsers(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);
@@ -65,17 +65,17 @@ function AllEmp() {
     }
 
     try {
-      const res = await axios.delete(`https://backend.vercel.app/api/deleteEmp/${user.id}`);
+      const res = await axios.delete(`https://backendapi-indol-psi.vercel.app/deleteEmp/${user.id}`);
       console.log('Employee deleted successfully:', res.data);
 
-      const updatedData = await axios.get('https://backend.vercel.app/api/allEmps');
+      const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allEmps');
       setAllUsers(updatedData.data);
     } catch (error) {
     }
   };
 
   const handleUpdateFormCencle = async (e) => {
-    const updatedData = await axios.get('https://backend.vercel.app/api/allEmps');
+    const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allEmps');
     setAllUsers(updatedData.data);
     setSelectedUser(null);
     setUpdateFormData({
@@ -95,9 +95,9 @@ function AllEmp() {
   const handleUpdateFormSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.put(`https://backend.vercel.app/api/updateEmp/${selectedUser.id}`, updateFormData);
+    const res = await axios.put(`https://backendapi-indol-psi.vercel.app/updateEmp/${selectedUser.id}`, updateFormData);
     console.log('Employee updated successfully:', res.data);
-    const updatedData = await axios.get('https://backend.vercel.app/api/allEmps');
+    const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allEmps');
     setAllUsers(updatedData.data);
     setSelectedUser(null);
     setUpdateFormData({

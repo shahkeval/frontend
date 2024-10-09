@@ -11,7 +11,7 @@ const ResetPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`https://backend.vercel.app/api/reset-password/${token}`, { password });
+            const response = await axios.post(`https://backendapi-indol-psi.vercel.app/reset-password/${token}`, { password });
             setMessage(response.data.message);
             if (response.status === 200) {
                 navigate('/');

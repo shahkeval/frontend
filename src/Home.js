@@ -23,16 +23,16 @@ function Home() {
     const fetchData = async () => {
       try {
         if (activeTable === 'Employee') {
-          const res1 = await axios.get('https://backend.vercel.app/api/allEmps');
+          const res1 = await axios.get('https://backendapi-indol-psi.vercel.app/allEmps');
           setAllUsers(res1.data);
         } else if (activeTable === 'Admin') {
-          const res2 = await axios.get('https://backend.vercel.app/api/allAdmin');
+          const res2 = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin');
           setAllAdmin(res2.data);
         } else if (activeTable === 'Salary') {
-          const res3 = await axios.get('https://backend.vercel.app/api/allSalary');
+          const res3 = await axios.get('https://backendapi-indol-psi.vercel.app/allSalary');
           setAllSalary(res3.data);
         } else if (activeTable === 'Leave') {
-          const res4 = await axios.get('https://backend.vercel.app/api/allLeave');
+          const res4 = await axios.get('https://backendapi-indol-psi.vercel.app/allLeave');
           setAllLea(res4.data);
         }
       } catch (error) {

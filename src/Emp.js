@@ -59,7 +59,7 @@ function Emp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('https://backend.vercel.app/api/Emp', {
+      .post('https://backendapi-indol-psi.vercel.app/Emp', {
         id: formValues.id,
         name: formValues.name,
         gender: formValues.gender,
