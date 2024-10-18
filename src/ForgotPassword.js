@@ -4,7 +4,7 @@ import axios from 'axios';
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-
+    axios.defaults.withCredentials = true;
     const handleSubmit = async (e) => {
         console.log("hello submit");
         e.preventDefault();

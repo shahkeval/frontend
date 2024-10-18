@@ -5,6 +5,7 @@ import './style/emp.css';
 
 function Emp() {
   const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
   const redirectToAllEmp = () => {
     navigate('/AllEmp');
   };

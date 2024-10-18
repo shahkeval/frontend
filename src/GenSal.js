@@ -13,7 +13,7 @@ function GenSal () {
     t_sal: '',
     sal_amt: '',
   });
-
+  axios.defaults.withCredentials = true;
   const navigate = useNavigate();
   const logout = async () => {
     const confirmlogout = window.confirm(`Are you sure do you want to logout??`);

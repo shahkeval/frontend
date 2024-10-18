@@ -7,7 +7,7 @@ const ResetPassword = () => {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
-
+    axios.defaults.withCredentials = true;
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

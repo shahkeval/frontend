@@ -7,7 +7,7 @@ export default function LeaReq() {
   const [allSalreq, setAllSalreq] = useState([]);
   const [allSalapp, setAllSalapp] = useState([]);
   const [allSalrej, setAllSalrej] = useState([]);
-
+  axios.defaults.withCredentials = true;
   const navigate = useNavigate();
   const logout = async () => {
     const confirmlogout = window.confirm(`Are you sure do you want to logout??`);

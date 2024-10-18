@@ -8,7 +8,7 @@ import './style/selrep.css';
 export default function SalRep() {
   const [allsal, setAllSal] = useState([]);
   const { id } = useParams();
-  
+  axios.defaults.withCredentials = true;
   const navigate = useNavigate();
   const logout = async () => {
     const confirmlogout = window.confirm(`Are you sure do you want to logout??`);

@@ -8,7 +8,7 @@ function Home() {
   const [allAdmin, setAllAdmin] = useState([]);
   const [allSalary, setAllSalary] = useState([]);
   const [allLea, setAllLea] = useState([]);
-
+  axios.defaults.withCredentials = true;
   const [activeTable, setActiveTable] = useState('Employee');
 
   const navigate = useNavigate();

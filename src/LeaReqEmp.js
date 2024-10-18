@@ -15,7 +15,7 @@ export default function LeaReqEmp() {
     dateofleave: '',
   });
   const [activeTable, setActiveTable] = useState('Leave');
-
+  axios.defaults.withCredentials = true;
   const navigate = useNavigate();
   const logout = async () => {
     const confirmlogout = window.confirm(`Are you sure do you want to logout??`);

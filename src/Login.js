@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './style/login.css'; 
 export default function Login() {
   const navigate = useNavigate();
-
+  axios.defaults.withCredentials = true;
   const redirectToHomeAd = () => {
     navigate('/Home');
   };

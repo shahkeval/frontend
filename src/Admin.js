@@ -5,6 +5,7 @@ import './style/admin.css';
 
 function Admin() {
     const navigate = useNavigate();
+    axios.defaults.withCredentials = true;
   const redirectToAllEmp = () => {
     navigate('/AllAdmin');
   };
