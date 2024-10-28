@@ -9,7 +9,13 @@ const ForgotPassword = () => {
         console.log("hello submit");
         e.preventDefault();
         try {
-            const response = await axios.post('https://backendapi-indol-psi.vercel.app/forgot-password', { email });
+            const response = await axios.post('https://backendapi-indol-psi.vercel.app/forgot-password', { 
+                method:"POST",
+                email ,
+                headers:{
+                    "content-Type":"application/json",
+                },
+            });
             setMessage(response.data.message);
         } catch (error) {
             setMessage('Error sending reset link');

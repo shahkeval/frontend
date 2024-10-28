@@ -33,7 +33,12 @@ export default function Login() {
 
   const handleLogin = async (role) => {
     try {
-      const response = await axios.post(`https://backendapi-indol-psi.vercel.app/login/${role}`, formData);
+      const response = await axios.post(`https://backendapi-indol-psi.vercel.app/login/${role}`, formData,{
+        method:"POST",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
       console.log(response.data);
       if (response.data.message === "Employee authentication successful") {
         redirectToHomeEmp(response.data.user.id);

@@ -25,7 +25,12 @@ function AllAdmin() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin');
+        const res = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin',{
+          method:"GET",
+          headers:{
+            "content-Type":"application/json",
+        },
+        });
         setAllUsers(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);
@@ -60,17 +65,32 @@ function AllAdmin() {
     }
 
     try {
-      const res = await axios.delete(`https://backendapi-indol-psi.vercel.app/deleteAdmin/${user.id}`);
+      const res = await axios.delete(`https://backendapi-indol-psi.vercel.app/deleteAdmin/${user.id}`,{
+        method:"DELETE",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
       console.log('Employee deleted successfully:', res.data);
 
-      const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin');
+      const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin',{
+        method:"GET",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
       setAllUsers(updatedData.data);
     } catch (error) {
     }
   };
 
   const handleUpdateFormCencle = async (e) => {
-    const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin');
+    const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin',{
+      method:"GET",
+      headers:{
+        "content-Type":"application/json",
+    },
+    });
     setAllUsers(updatedData.data);
     setSelectedUser(null);
     setUpdateFormData({
@@ -84,9 +104,19 @@ function AllAdmin() {
   const handleUpdateFormSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.put(`https://backendapi-indol-psi.vercel.app/updateAdmin/${selectedUser.id}`, updateFormData);
+    const res = await axios.put(`https://backendapi-indol-psi.vercel.app/updateAdmin/${selectedUser.id}`, updateFormData,{
+      method:"PUT",
+      headers:{
+        "content-Type":"application/json",
+    },
+    });
     console.log('Employee updated successfully:', res.data);
-    const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin');
+    const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin',{
+      method:"GET",
+      headers:{
+        "content-Type":"application/json",
+    },
+    });
     setAllUsers(updatedData.data);
     setSelectedUser(null);
     setUpdateFormData({

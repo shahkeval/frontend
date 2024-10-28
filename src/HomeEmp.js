@@ -32,7 +32,12 @@ function HomeEmp() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`https://backendapi-indol-psi.vercel.app/oneEmp/${id}`);
+        const res = await axios.get(`https://backendapi-indol-psi.vercel.app/oneEmp/${id}`,{
+          method:"GET",
+          headers:{
+            "content-Type":"application/json",
+        },
+        });
         setAllUsers(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);
@@ -65,7 +70,12 @@ function HomeEmp() {
   };
 
   const handleUpdateFormCencle = async (e) => {
-    const updatedData = await axios.get(`https://backendapi-indol-psi.vercel.app/oneEmp/${id}`);
+    const updatedData = await axios.get(`https://backendapi-indol-psi.vercel.app/oneEmp/${id}`,{
+      method:"GET",
+      headers:{
+        "content-Type":"application/json",
+    },
+    });
     setAllUsers(updatedData.data);
     setSelectedUser(null);
     setUpdateFormData({
@@ -82,9 +92,19 @@ function HomeEmp() {
   const handleUpdateFormSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.put(`https://backendapi-indol-psi.vercel.app/updateEmp/${selectedUser.id}`, updateFormData);
+    const res = await axios.put(`https://backendapi-indol-psi.vercel.app/updateEmp/${selectedUser.id}`, updateFormData,{
+      method:"PUT",
+      headers:{
+        "content-Type":"application/json",
+    },
+    });
     console.log('Employee updated successfully:', res.data);
-    const updatedData = await axios.get(`https://backendapi-indol-psi.vercel.app/oneEmp/${id}`);
+    const updatedData = await axios.get(`https://backendapi-indol-psi.vercel.app/oneEmp/${id}`,{
+      method:"GET",
+      headers:{
+        "content-Type":"application/json",
+    },
+    });
     setAllUsers(updatedData.data);
     setSelectedUser(null);
     setinstate(false);

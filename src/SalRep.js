@@ -20,7 +20,12 @@ export default function SalRep() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`https://backendapi-indol-psi.vercel.app/oneSalary/${id}`);
+        const res = await axios.get(`https://backendapi-indol-psi.vercel.app/oneSalary/${id}`,{
+          method:"GET",
+          headers:{
+            "content-Type":"application/json",
+        },
+        });
         setAllSal(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);

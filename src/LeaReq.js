@@ -19,11 +19,26 @@ export default function LeaReq() {
 
   const refresh = async () => {
     try {
-      const res1 = await axios.get(`https://backendapi-indol-psi.vercel.app/allLeaveReq`);
+      const res1 = await axios.get(`https://backendapi-indol-psi.vercel.app/allLeaveReq`,{
+        method:"GET",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
       setAllSalreq(res1.data);
-      const res2 = await axios.get(`https://backendapi-indol-psi.vercel.app/allLeaveApp`);
+      const res2 = await axios.get(`https://backendapi-indol-psi.vercel.app/allLeaveApp`,{
+        method:"GET",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
       setAllSalapp(res2.data);
-      const res3 = await axios.get(`https://backendapi-indol-psi.vercel.app/allLeaveRej`);
+      const res3 = await axios.get(`https://backendapi-indol-psi.vercel.app/allLeaveRej`,{
+        method:"GET",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
         setAllSalrej(res3.data);
     } catch (error) {
       console.error('Error fetching salaries:', error);
@@ -37,7 +52,12 @@ export default function LeaReq() {
   
   const handleApprove = async (id) => {
     try {
-      await axios.put(`https://backendapi-indol-psi.vercel.app/approveLeave/${id}`);
+      await axios.put(`https://backendapi-indol-psi.vercel.app/approveLeave/${id}`,{
+        method:"PUT",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
       refresh();
     } catch (error) {
       console.error('Error approving leave request:', error);
@@ -46,7 +66,12 @@ export default function LeaReq() {
 
   const handleReject = async (id) => {
     try {
-      await axios.put(`https://backendapi-indol-psi.vercel.app/rejectLeave/${id}`);
+      await axios.put(`https://backendapi-indol-psi.vercel.app/rejectLeave/${id}`,{
+        method:"PUT",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
       refresh();
     } catch (error) {
       console.error('Error rejecting leave request:', error);

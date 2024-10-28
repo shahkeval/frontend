@@ -57,13 +57,18 @@ function Admin() {
     const handleSubmit = (e) => {    
         e.preventDefault();
         axios.post("https://backendapi-indol-psi.vercel.app/Admin",
-        {  id: formValues.id,
+        {
+          method:"POST",  
+        id: formValues.id,
         name: formValues.name,
         gender: formValues.gender,
         age: formValues.age,
         doj: formValues.doj,
         email: formValues.email,
-        password: formValues.password
+        password: formValues.password,
+        headers:{
+          "content-Type":"application/json",
+      },
         })
         .then((result) => {
             console.log(result);

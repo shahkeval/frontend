@@ -61,6 +61,7 @@ function Emp() {
     e.preventDefault();
     axios
       .post('https://backendapi-indol-psi.vercel.app/Emp', {
+        method:"POST",
         id: formValues.id,
         name: formValues.name,
         gender: formValues.gender,
@@ -68,6 +69,9 @@ function Emp() {
         doj: formValues.doj,
         email: formValues.email,
         password: formValues.password,
+        headers:{
+          "content-Type":"application/json",
+      },
       })
       .then((result) => {
         console.log(result);

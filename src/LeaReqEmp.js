@@ -28,7 +28,12 @@ export default function LeaReqEmp() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`https://backendapi-indol-psi.vercel.app/oneLeave/${id}`);
+        const res = await axios.get(`https://backendapi-indol-psi.vercel.app/oneLeave/${id}`,{
+          method:"GET",
+          headers:{
+            "content-Type":"application/json",
+        },
+        });
         setAllSal(res.data);
       } catch (error) {
         console.error('Error fetching salaries:', error);
@@ -68,7 +73,12 @@ export default function LeaReqEmp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('https://backendapi-indol-psi.vercel.app/leave', formValues)
+      .post('https://backendapi-indol-psi.vercel.app/leave', formValues,{
+        method:"POST",
+        headers:{
+          "content-Type":"application/json",
+      },
+      })
       .then(async (result) => {
         console.log(result);
         setFormValues({
@@ -78,7 +88,12 @@ export default function LeaReqEmp() {
           reason: '',
           dateofleave: '',
         });
-        const res = await axios.get(`https://backendapi-indol-psi.vercel.app/oneLeave/${id}`);
+        const res = await axios.get(`https://backendapi-indol-psi.vercel.app/oneLeave/${id}`,{
+          method:"GET",
+          headers:{
+            "content-Type":"application/json",
+        },
+        });
         setAllSal(res.data);
       })
       .catch((err) => {

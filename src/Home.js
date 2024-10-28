@@ -23,16 +23,36 @@ function Home() {
     const fetchData = async () => {
       try {
         if (activeTable === 'Employee') {
-          const res1 = await axios.get('https://backendapi-indol-psi.vercel.app/allEmps');
+          const res1 = await axios.get('https://backendapi-indol-psi.vercel.app/allEmps',{
+            method:"GET",
+            headers:{
+              "content-Type":"application/json",
+          },
+          });
           setAllUsers(res1.data);
         } else if (activeTable === 'Admin') {
-          const res2 = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin');
+          const res2 = await axios.get('https://backendapi-indol-psi.vercel.app/allAdmin',{
+            method:"GET",
+            headers:{
+              "content-Type":"application/json",
+          },
+          });
           setAllAdmin(res2.data);
         } else if (activeTable === 'Salary') {
-          const res3 = await axios.get('https://backendapi-indol-psi.vercel.app/allSalary');
+          const res3 = await axios.get('https://backendapi-indol-psi.vercel.app/allSalary',{
+            method:"GET",
+            headers:{
+              "content-Type":"application/json",
+          },
+          });
           setAllSalary(res3.data);
         } else if (activeTable === 'Leave') {
-          const res4 = await axios.get('https://backendapi-indol-psi.vercel.app/allLeave');
+          const res4 = await axios.get('https://backendapi-indol-psi.vercel.app/allLeave',{
+            method:"GET",
+            headers:{
+              "content-Type":"application/json",
+          },
+          });
           setAllLea(res4.data);
         }
       } catch (error) {

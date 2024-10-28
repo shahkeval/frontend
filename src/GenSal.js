@@ -25,7 +25,12 @@ function GenSal () {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://backendapi-indol-psi.vercel.app/allEmps');
+        const res = await axios.get('https://backendapi-indol-psi.vercel.app/allEmps',{
+          method:"GET",
+          headers:{
+            "content-Type":"application/json",
+        },
+        });
         setAllUsers(res.data);
 
         setAllSal(res.data);
@@ -40,7 +45,12 @@ function GenSal () {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://backendapi-indol-psi.vercel.app/allSalary');
+        const res = await axios.get('https://backendapi-indol-psi.vercel.app/allSalary',{
+          method:"GET",
+          headers:{
+            "content-Type":"application/json",
+        },
+        });
         setAllSal(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);
@@ -79,10 +89,20 @@ function GenSal () {
     }
 
     try {
-      const res = await axios.delete(`https://backendapi-indol-psi.vercel.app/deleteSalary/${user.id}`);
+      const res = await axios.delete(`https://backendapi-indol-psi.vercel.app/deleteSalary/${user.id}`,{
+        method:"DELETE",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
       console.log('Employee deleted successfully:', res.data);
 
-      const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allSalary');
+      const updatedData = await axios.get('https://backendapi-indol-psi.vercel.app/allSalary',{
+        method:"GET",
+        headers:{
+          "content-Type":"application/json",
+      },
+      });
       setAllSal(updatedData.data);
     } catch (error) {
     }
@@ -108,7 +128,12 @@ function GenSal () {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('https://backendapi-indol-psi.vercel.app/Salary', formValues)
+      .post('https://backendapi-indol-psi.vercel.app/Salary', formValues,{
+        method:"POST",
+        headers:{
+          "content-Type":"application/json",
+      },
+      })
       .then(async(result) => {
         console.log(result);
         setFormValues({
@@ -119,7 +144,12 @@ function GenSal () {
           s_eid:""
         })
         setActiveTable('Table');
-        const res = await axios.get('https://backendapi-indol-psi.vercel.app/allSalary');
+        const res = await axios.get('https://backendapi-indol-psi.vercel.app/allSalary',{
+          method:"GET",
+          headers:{
+            "content-Type":"application/json",
+        },
+        });
         setAllSal(res.data);
       })
       .catch((err) => {
